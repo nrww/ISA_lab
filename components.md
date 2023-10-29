@@ -17,7 +17,7 @@ Person(user, "Пользователь")
 
 System_Ext(web_site, "Клиентский веб-сайт", "HTML, CSS, JavaScript, React", "Веб-интерфейс")
 
-System_Boundary(conference_site, "Сайт блогов") {
+System_Boundary(conference_site, "Сайт услуг") {
    Container(client_service, "Сервис авторизации", "C++", "Сервис управления пользователями", $tags = "microService")    
    Container(services_service, "Сервис услуг", "C++", "Сервис управления услугами", $tags = "microService") 
    Container(order_service, "Сервис заказов", "C++", "Сервис управления заказами", $tags = "microService")  
@@ -123,6 +123,7 @@ class User {
   last_name
   email
   phone
+  password
 }
 
 class Order {
@@ -146,6 +147,6 @@ User <- Service
 User <- Order
 Service <- Order
 Order <- Message
-
+User <- Message
 @enduml
 ```
